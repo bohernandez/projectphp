@@ -53,9 +53,11 @@ CREATE TABLE DB_MUNICIPIO
   CONSTRAINT pk_municip PRIMARY KEY (id_munic),
   
   CONSTRAINT fk_municip FOREIGN KEY (id_depto)
-  REFERENCES DB_DEPARTAMENTO(id_depto)
-  
+  REFERENCES DB_DEPARTAMENTO(id_depto)  
 );
+
+
+x
 
 
 
