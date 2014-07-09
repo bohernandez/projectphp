@@ -49,7 +49,7 @@ if(!isset($_SESSION['iduser']))
 					</div>';
 		$var = utf8_encode($var);
 		}
-		//echo md5("bohernandez");
+		echo md5("bohernandez");
 		require_once('modulos/login/vista.php');
 
 		//$online_users = obtain_users_online(); 
