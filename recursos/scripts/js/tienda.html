@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tienda</title>
+<style type="text/css">
+<!--
+body,td,th {
+	color: #333333;
+}
+#lista1, #lista2 {
+	width:200px;
+	border:1px solid #990000;
+	height:auto;
+	float:left;
+	margin-right:5px;
+}
+-->
+</style>
+<script language="javascript" src="js/jquery-1.3.1.min.js"></script>
+<script language="javascript" src="js/jquery-ui-personalized-1.6rc6.min.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	var $lista1 = $('#lista1'), $lista2 = $('#lista2');
+	// lista 1
+	$('li',$lista1).draggable({
+		revert: 'invalid',		
+		helper: 'clone',		
+		cursor: 'move'
+	});
+	$lista1.droppable({
+		accept: '#lista2 li',
+		drop: function(ev, ui) {
+			deleteLista2(ui.draggable);
+		}
+	});
+	/* lista2 */
+	$('li',$lista2).draggable({
+		revert: 'invalid',
+		helper: 'clone',	
+		cursor: 'move'
+	});
+	$lista2.droppable({
+		accept: '#lista1 > li',
+		drop: function(ev, ui) {
+			deleteLista1(ui.draggable);		
+		}
+	});
+	// listas	
+	function deleteLista1($item) {
+		$item.fadeOut(function() {
+			$($item).appendTo($lista2).fadeIn();;
+		});
+		$item.fadeIn();
+	}
+	function deleteLista2($item) {
+		$item.fadeOut(function() {			
+			$item.appendTo($lista1).fadeIn();
+		});
+	}
+});
+</script>
+</head>
+<body>
+<div id="demo-frame">
+<ul id="lista1" class="gallery">
+	<li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+    <li>Item4</li>
+</ul>
+<ul id="lista2">
+	<li>Item5</li>
+    <li>Item6</li>
+    <li>Item7</li>
+</ul>
+</div>
+</body>
+</html>

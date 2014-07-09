@@ -1,0 +1,2 @@
+Para este modulo, es necesario los archivos que se encuentran dentro
+del modulo de PERFIL, ya que son llamados a partir del archivo BUSQUEDA.PHP

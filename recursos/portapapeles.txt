@@ -1,0 +1,10 @@
+insert into TR_CANDIDATO (DUI,NOMRE,CORREO,TEL_CEL,TEL_FIJ, ID_MUNICIPIO, ID_PROCESO,  ID_MOTIVO, STATUS)
+values ('', '', '', '', '', '', '', '', '');
+
+
+
+select *
+from T_LIFE.VW_AMONESTACIONES VAM
+where VAM.id_sabana = '319' 
+and  VAM.ID_AMONESTACION = (select max(id_aps) from T_LIFE.DB_LOG_PERSONNEL_ACTION where ID_SABANA =  '319')
+and GRAVEDAD in ('Muy Grave', 'Grave');
